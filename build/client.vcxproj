@@ -87,6 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtWidgets" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtCore" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/mkspecs/win32-msvc" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtGui" /external:I "C:/Users/user/vcpkg/installed/x64-windows/include" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -112,10 +113,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;QT_WIDGETS_LIB;QT_CORE_LIB;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -154,6 +155,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtWidgets" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtCore" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/mkspecs/win32-msvc" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtGui" /external:I "C:/Users/user/vcpkg/installed/x64-windows/include" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -180,10 +182,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;QT_WIDGETS_LIB;QT_CORE_LIB;QT_NO_DEBUG;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -222,6 +224,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtWidgets" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtCore" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/mkspecs/win32-msvc" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtGui" /external:I "C:/Users/user/vcpkg/installed/x64-windows/include" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -248,10 +251,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;QT_WIDGETS_LIB;QT_CORE_LIB;QT_NO_DEBUG;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -290,6 +293,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtWidgets" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtCore" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/mkspecs/win32-msvc" /external:I "C:/QtMSVC/6.9.3/msvc2022_64/include/QtGui" /external:I "C:/Users/user/vcpkg/installed/x64-windows/include" -Zc:__cplusplus -utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -315,10 +319,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;QT_WIDGETS_LIB;QT_CORE_LIB;QT_NO_DEBUG;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_WIN64;UNICODE;_UNICODE;QT_GUI_LIB;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\QtMSVC\6.9.3\msvc2022_64\include\QtWidgets;C:\QtMSVC\6.9.3\msvc2022_64\include;C:\QtMSVC\6.9.3\msvc2022_64\include\QtCore;C:\QtMSVC\6.9.3\msvc2022_64\mkspecs\win32-msvc;C:\QtMSVC\6.9.3\msvc2022_64\include\QtGui;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -419,9 +423,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="E:\School\STDISCM\PSET4\client\grpc_client.cpp" />
     <ClInclude Include="E:\School\STDISCM\PSET4\client\grpc_client.h" />
     <ClCompile Include="E:\School\STDISCM\PSET4\proto\ocr.pb.cc" />
-    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.pb.h" />
     <ClCompile Include="E:\School\STDISCM\PSET4\proto\ocr.grpc.pb.cc" />
-    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.grpc.pb.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

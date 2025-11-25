@@ -24,12 +24,6 @@
     <ClInclude Include="E:\School\STDISCM\PSET4\server\worker_pool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.grpc.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\School\STDISCM\PSET4\CMakeLists.txt" />

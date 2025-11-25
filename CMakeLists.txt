@@ -3,6 +3,13 @@ project(PSET4 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/client
+    ${CMAKE_CURRENT_SOURCE_DIR}/server
+)
+
+
 # Qt
 set(CMAKE_PREFIX_PATH "C:/QtMSVC/6.9.3/msvc2022_64")
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
@@ -32,8 +39,8 @@ add_executable(server
     server/ocr_server.h
     server/worker_pool.cpp
     server/worker_pool.h
-    ${PROTO_SRCS} ${PROTO_HDRS}
-    ${GRPC_SRCS} ${GRPC_HDRS}
+    proto/ocr.pb.cc
+    proto/ocr.grpc.pb.cc
 )
 target_link_libraries(server
     PRIVATE
@@ -50,8 +57,8 @@ add_executable(client
     client/mainwindow.h
     client/grpc_client.cpp
     client/grpc_client.h
-    ${PROTO_SRCS} ${PROTO_HDRS}
-    ${GRPC_SRCS} ${GRPC_HDRS}
+    proto/ocr.pb.cc
+    proto/ocr.grpc.pb.cc
 )
 target_link_libraries(client
     PRIVATE
