@@ -3,12 +3,10 @@ project(PSET4 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/client
-    ${CMAKE_CURRENT_SOURCE_DIR}/server
-)
-
+# Enable Qt's automatic MOC, UIC, and RCC
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
 # Qt
 set(CMAKE_PREFIX_PATH "C:/QtMSVC/6.9.3/msvc2022_64")
@@ -26,6 +24,9 @@ find_package(gRPC REQUIRED)
 find_package(Tesseract REQUIRED)
 find_package(Leptonica REQUIRED)
 
+# Add vcpkg library directories
+link_directories("C:/Users/user/vcpkg/installed/x64-windows/lib")
+
 # Proto files
 set(PROTO_SRCS proto/ocr.pb.cc)
 set(PROTO_HDRS proto/ocr.pb.h)
@@ -39,32 +40,42 @@ add_executable(server
     server/ocr_server.h
     server/worker_pool.cpp
     server/worker_pool.h
-    proto/ocr.pb.cc
-    proto/ocr.grpc.pb.cc
+    ${PROTO_SRCS} ${PROTO_HDRS}
+    ${GRPC_SRCS} ${GRPC_HDRS}
+)
+target_include_directories(server PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/proto
+    ${Tesseract_INCLUDE_DIRS} 
+    ${Leptonica_INCLUDE_DIRS}
 )
 target_link_libraries(server
     PRIVATE
     gRPC::grpc++
     protobuf::libprotobuf
-    libtesseract
-    leptonica
+    ${Tesseract_LIBRARIES}
+    ${Leptonica_LIBRARIES}
 )
 
-# Client
-add_executable(client
+# Client (WIN32 makes it a GUI app instead of console)
+add_executable(client WIN32
     client/main.cpp
     client/mainwindow.cpp
     client/mainwindow.h
     client/grpc_client.cpp
     client/grpc_client.h
-    proto/ocr.pb.cc
-    proto/ocr.grpc.pb.cc
+    ${PROTO_SRCS} ${PROTO_HDRS}
+    ${GRPC_SRCS} ${GRPC_HDRS}
+)
+target_include_directories(client PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/proto
+    ${Tesseract_INCLUDE_DIRS} 
+    ${Leptonica_INCLUDE_DIRS}
 )
 target_link_libraries(client
     PRIVATE
     Qt6::Widgets
     gRPC::grpc++
     protobuf::libprotobuf
-    libtesseract
-    leptonica
+    ${Tesseract_LIBRARIES}
+    ${Leptonica_LIBRARIES}
 )

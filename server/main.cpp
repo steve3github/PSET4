@@ -2,7 +2,7 @@
 #include "ocr_server.h"
 
 int main() {
-    std::string address = "0.0.0.0:50051";
+    std::string address = "0.0.0.0:50051";  // Change to desired server address
     OCRServiceImpl service;
 
     grpc::ServerBuilder builder;

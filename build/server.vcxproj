@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_Debug;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -112,16 +112,33 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_Debug;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_Debug;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC and UIC for target server</Message>
+      <Command>setlocal
+cd E:\School\STDISCM\PSET4\build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen E:/School/STDISCM/PSET4/build/CMakeFiles/server_autogen.dir/AutogenInfo.json Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
@@ -135,8 +152,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\debug\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\libprotobufd.lib;libtesseract.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\leptonica-1.85.0d.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\zlibd.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\debug\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\libprotobufd.lib;tesseract55d.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\leptonica-1.85.0d.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\zlibd.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\debug\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/user/vcpkg/installed/x64-windows/lib;C:/Users/user/vcpkg/installed/x64-windows/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -154,7 +171,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_Release;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -180,16 +197,33 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_Release;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_Release;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC and UIC for target server</Message>
+      <Command>setlocal
+cd E:\School\STDISCM\PSET4\build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen E:/School/STDISCM/PSET4/build/CMakeFiles/server_autogen.dir/AutogenInfo.json Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
@@ -203,8 +237,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libprotobuf.lib;libtesseract.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\leptonica-1.85.0.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\zlib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libprotobuf.lib;tesseract55.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\leptonica-1.85.0.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\zlib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/user/vcpkg/installed/x64-windows/lib;C:/Users/user/vcpkg/installed/x64-windows/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -222,7 +256,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_MinSizeRel;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -248,16 +282,33 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_MinSizeRel;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_MinSizeRel;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC and UIC for target server</Message>
+      <Command>setlocal
+cd E:\School\STDISCM\PSET4\build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen E:/School/STDISCM/PSET4/build/CMakeFiles/server_autogen.dir/AutogenInfo.json MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
@@ -271,8 +322,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libprotobuf.lib;libtesseract.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\leptonica-1.85.0.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\zlib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libprotobuf.lib;tesseract55.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\leptonica-1.85.0.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\zlib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/user/vcpkg/installed/x64-windows/lib;C:/Users/user/vcpkg/installed/x64-windows/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -290,7 +341,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_RelWithDebInfo;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -315,16 +366,33 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ABSL_CONSUME_DLL;PROTOBUF_USE_DLLS;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_RelWithDebInfo;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\proto;E:\School\STDISCM\PSET4\client;E:\School\STDISCM\PSET4\server;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\School\STDISCM\PSET4\build\server_autogen\include_RelWithDebInfo;E:\School\STDISCM\PSET4\proto;C:\Users\user\vcpkg\installed\x64-windows\include\leptonica;C:\Users\user\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC and UIC for target server</Message>
+      <Command>setlocal
+cd E:\School\STDISCM\PSET4\build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen E:/School/STDISCM/PSET4/build/CMakeFiles/server_autogen.dir/AutogenInfo.json RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
@@ -338,8 +406,8 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libprotobuf.lib;libtesseract.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\leptonica-1.85.0.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\zlib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Users\user\vcpkg\installed\x64-windows\lib\grpc++.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libprotobuf.lib;tesseract55.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\leptonica-1.85.0.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\grpc.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_json_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_textformat_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mini_descriptor_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_wire_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\utf8_range.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_message_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_base_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\upb_mem_lib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\re2.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\zlib.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\cares.lib;advapi32.lib;iphlpapi.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\gpr.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_reflection.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_config.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_program_name.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_private_handle_accessor.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_commandlineflag_internal.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\absl_flags_marshalling.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\abseil_dll.lib;-ignore:4221;C:\Users\user\vcpkg\installed\x64-windows\lib\libssl.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\libcrypto.lib;C:\Users\user\vcpkg\installed\x64-windows\lib\address_sorting.lib;wsock32.lib;ws2_32.lib;crypt32.lib;gdi32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/user/vcpkg/installed/x64-windows/lib;C:/Users/user/vcpkg/installed/x64-windows/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -413,13 +481,35 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="E:\School\STDISCM\PSET4\build\server_autogen\mocs_compilation_Debug.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="E:\School\STDISCM\PSET4\server\main.cpp" />
     <ClCompile Include="E:\School\STDISCM\PSET4\server\ocr_server.cpp" />
     <ClInclude Include="E:\School\STDISCM\PSET4\server\ocr_server.h" />
     <ClCompile Include="E:\School\STDISCM\PSET4\server\worker_pool.cpp" />
     <ClInclude Include="E:\School\STDISCM\PSET4\server\worker_pool.h" />
     <ClCompile Include="E:\School\STDISCM\PSET4\proto\ocr.pb.cc" />
+    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.pb.h" />
     <ClCompile Include="E:\School\STDISCM\PSET4\proto\ocr.grpc.pb.cc" />
+    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.grpc.pb.h" />
+    <ClCompile Include="E:\School\STDISCM\PSET4\build\server_autogen\mocs_compilation_Release.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="E:\School\STDISCM\PSET4\build\server_autogen\mocs_compilation_MinSizeRel.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="E:\School\STDISCM\PSET4\build\server_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
