@@ -2,6 +2,10 @@
     "files.associations": {
         "system_error": "cpp",
         "xstring": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "atomic": "cpp",
+        "condition_variable": "cpp",
+        "memory": "cpp",
+        "mutex": "cpp"
     }
 }
