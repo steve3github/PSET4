@@ -1,12 +1,19 @@
 #include "grpc_client.h"
 #include <thread>
+#include <QDebug>
 
 OCRClient::OCRClient() {
-    channel = grpc::CreateChannel("SERVER_IP_HERE:50051", grpc::InsecureChannelCredentials());
+    channel = grpc::CreateChannel("192.168.1.5:50051", grpc::InsecureChannelCredentials());
     stub = ocr::OCRService::NewStub(channel);
 
     grpc::ClientContext *ctx = new grpc::ClientContext();
     stream = stub->SendImage(ctx);
+
+    if (!stream) {
+        qDebug() << "Failed to open gRPC stream!";
+    } else {
+        qDebug() << "Stream opened successfully.";
+    }
 
     std::thread(&OCRClient::listenForResponses, this).detach();
 }

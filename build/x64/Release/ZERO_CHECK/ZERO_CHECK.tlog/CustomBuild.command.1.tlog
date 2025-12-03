@@ -1,6 +1,6 @@
-^E:\SCHOOL\STDISCM\PSET4\BUILD\CMAKEFILES\00A0F35E67E065603CE7457CF27A554F\GENERATE.STAMP.RULE
+^C:\USERS\ALY\DESKTOP\CODE N STUFF\PSET4\BUILD\CMAKEFILES\78FF30E3ACE4824113391D33EF84DAEF\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/School/STDISCM/PSET4 -BE:/School/STDISCM/PSET4/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/School/STDISCM/PSET4/build/PSET4.sln
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Aly/Desktop/code n stuff/PSET4" "-BC:/Users/Aly/Desktop/code n stuff/PSET4/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Aly/Desktop/code n stuff/PSET4/build/PSET4.sln"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

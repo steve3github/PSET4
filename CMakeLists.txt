@@ -9,13 +9,13 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 # Qt
-set(CMAKE_PREFIX_PATH "C:/QtMSVC/6.9.3/msvc2022_64")
+set(CMAKE_PREFIX_PATH "D:/Qt/6.9.3/msvc2022_64")
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 # Force CMake to look in vcpkg's installed directory
 set(CMAKE_PREFIX_PATH 
     "${CMAKE_PREFIX_PATH}"
-    "C:/Users/user/vcpkg/installed/x64-windows"
+    "C:/vcpkg/installed/x64-windows"
 )
 
 # Find packages without CONFIG mode to avoid wrapper issues
@@ -25,7 +25,7 @@ find_package(Tesseract REQUIRED)
 find_package(Leptonica REQUIRED)
 
 # Add vcpkg library directories
-link_directories("C:/Users/user/vcpkg/installed/x64-windows/lib")
+link_directories("C:/vcpkg/installed/x64-windows/lib")
 
 # Proto files
 set(PROTO_SRCS proto/ocr.pb.cc)

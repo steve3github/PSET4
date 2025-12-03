@@ -1,6 +1,6 @@
-^E:\SCHOOL\STDISCM\PSET4\CMAKELISTS.TXT
+^C:\USERS\ALY\DESKTOP\CODE N STUFF\PSET4\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/School/STDISCM/PSET4 -BE:/School/STDISCM/PSET4/build --check-stamp-file E:/School/STDISCM/PSET4/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Aly/Desktop/code n stuff/PSET4" "-BC:/Users/Aly/Desktop/code n stuff/PSET4/build" --check-stamp-file "C:/Users/Aly/Desktop/code n stuff/PSET4/build/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

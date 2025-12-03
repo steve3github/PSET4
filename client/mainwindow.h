@@ -4,6 +4,9 @@
 #include <QPushButton>
 #include <QProgressBar>
 #include <QListWidget>
+#include <QGridLayout>
+#include <QLabel>
+#include <QMap>
 
 #include "grpc_client.h"
 
@@ -14,6 +17,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
 private slots:
+    void resizeEvent(QResizeEvent *event) override;
     void onUploadClicked();
     void handleResult(QString imageId, QString text);
 
@@ -22,7 +26,16 @@ private:
 
     QPushButton *uploadButton;
     QProgressBar *progressBar;
-    QListWidget *resultsList;
+    QWidget *gridContainer;
+    QGridLayout *gridLayout;
+
+    struct ImageWidget {
+        QLabel *thumbnail;
+        QLabel *status;
+    };
+
+    QMap<QString, ImageWidget> imageWidgets;
+
 
     QString currentBatchId;
     int totalImages = 0;

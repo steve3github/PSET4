@@ -17,13 +17,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     uploadButton = new QPushButton("Upload Images");
     progressBar = new QProgressBar();
-    resultsList = new QListWidget();
+    // resultsList = new QListWidget();
 
     layout->addWidget(uploadButton);
     layout->addWidget(progressBar);
-    layout->addWidget(resultsList);
+    // layout->addWidget(resultsList);
+
+    gridContainer = new QWidget(this);
+    gridLayout = new QGridLayout(gridContainer);
+    gridLayout->setSpacing(15);
+    gridLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+
+    layout->addWidget(gridContainer);
 
     setCentralWidget(central);
+    resize(700, 400);
 
     connect(uploadButton, &QPushButton::clicked, this, &MainWindow::onUploadClicked);
 
@@ -39,7 +47,34 @@ void MainWindow::onUploadClicked() {
         QByteArray data = f.readAll();
 
         QString imgId = QUuid::createUuid().toString();
-        resultsList->addItem("Processing: " + imgId);
+
+        // --- Create preview widget ---
+        ImageWidget item;
+        item.thumbnail = new QLabel();
+        item.thumbnail->setFixedSize(120, 120);
+        item.thumbnail->setStyleSheet("border: 1px solid gray;");
+
+        QPixmap pix(path);
+        item.thumbnail->setPixmap(
+            pix.scaled(120, 120, Qt::KeepAspectRatio, Qt::SmoothTransformation)
+        );
+
+        item.status = new QLabel("Processing...");
+        item.status->setAlignment(Qt::AlignCenter);
+        item.status->setWordWrap(true);
+
+        QWidget *cell = new QWidget();
+        QVBoxLayout *cellLayout = new QVBoxLayout(cell);
+        cellLayout->addWidget(item.thumbnail);
+        cellLayout->addWidget(item.status);
+
+        int index = imageWidgets.size();
+        int row = index / 3;   // 3 columns
+        int col = index % 3;
+
+        gridLayout->addWidget(cell, row, col);
+
+        imageWidgets[imgId] = item;
 
         totalImages++;
         progressBar->setMaximum(totalImages);
@@ -48,16 +83,46 @@ void MainWindow::onUploadClicked() {
     }
 }
 
+
 void MainWindow::handleResult(QString imageId, QString text) {
     processedImages++;
     progressBar->setValue(processedImages);
 
-    resultsList->addItem("Result (" + imageId + "): " + text);
+    if (imageWidgets.contains(imageId)) {
+        imageWidgets[imageId].status->setText(text);
+    }
 
     if (processedImages == totalImages) {
         totalImages = 0;
         processedImages = 0;
         currentBatchId = QUuid::createUuid().toString();
-        resultsList->addItem("Batch complete.");
     }
 }
+
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    QMainWindow::resizeEvent(event);
+
+    if (!gridLayout || imageWidgets.isEmpty())
+        return;
+
+    int cellWidth = 150;  // thumbnail + margins
+    int availableWidth = gridContainer->width();
+
+    int columns = availableWidth / cellWidth;
+    if (columns < 1)
+        columns = 1;
+
+    // Re-layout all widgets
+    int index = 0;
+    for (auto it = imageWidgets.begin(); it != imageWidgets.end(); ++it) {
+        int row = index / columns;
+        int col = index % columns;
+
+        QWidget *cellWidget = it.value().thumbnail->parentWidget();
+        gridLayout->addWidget(cellWidget, row, col);
+
+        index++;
+    }
+}
+

@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\School\STDISCM\PSET4\build\x64\Release\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\Aly\Desktop\code n stuff\PSET4\build\x64\Release\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>E:\School\STDISCM\PSET4\build\Release\server.exe</FullPath>
+      <FullPath>C:\Users\Aly\Desktop\code n stuff\PSET4\build\Release\server.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

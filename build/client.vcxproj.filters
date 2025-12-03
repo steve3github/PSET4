@@ -1,57 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\School\STDISCM\PSET4\build\client_autogen\mocs_compilation_Debug.cpp">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\build\client_autogen\mocs_compilation_Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\client\main.cpp">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\client\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\client\mainwindow.cpp">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\client\mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\client\grpc_client.cpp">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\client\grpc_client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\proto\ocr.pb.cc">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\proto\ocr.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\proto\ocr.grpc.pb.cc">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\proto\ocr.grpc.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\build\client_autogen\mocs_compilation_Release.cpp">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\build\client_autogen\mocs_compilation_Release.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\build\client_autogen\mocs_compilation_MinSizeRel.cpp">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\build\client_autogen\mocs_compilation_MinSizeRel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\School\STDISCM\PSET4\build\client_autogen\mocs_compilation_RelWithDebInfo.cpp">
+    <ClCompile Include="C:\Users\Aly\Desktop\code n stuff\PSET4\build\client_autogen\mocs_compilation_RelWithDebInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\School\STDISCM\PSET4\client\mainwindow.h">
+    <ClInclude Include="C:\Users\Aly\Desktop\code n stuff\PSET4\client\mainwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\School\STDISCM\PSET4\client\grpc_client.h">
+    <ClInclude Include="C:\Users\Aly\Desktop\code n stuff\PSET4\client\grpc_client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.pb.h">
+    <ClInclude Include="C:\Users\Aly\Desktop\code n stuff\PSET4\proto\ocr.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\School\STDISCM\PSET4\proto\ocr.grpc.pb.h">
+    <ClInclude Include="C:\Users\Aly\Desktop\code n stuff\PSET4\proto\ocr.grpc.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\School\STDISCM\PSET4\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Aly\Desktop\code n stuff\PSET4\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{1E5CCEF6-5EC7-3E97-8687-F6AF5E7B18A6}</UniqueIdentifier>
+      <UniqueIdentifier>{577804BD-0013-3C0A-8B84-BB17F26E00AD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{822623EA-3ACC-3A9D-9FCF-C24E45BB62F3}</UniqueIdentifier>
+      <UniqueIdentifier>{18604518-DCFA-334A-9EA3-6C43C56C7700}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

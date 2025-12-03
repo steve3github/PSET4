@@ -10,6 +10,9 @@ int main() {
     builder.RegisterService(&service);
 
     std::unique_ptr<grpc::Server> server(builder.BuildAndStart());
+
+    std::cout << "Server started on " << address << std::endl;
+    
     server->Wait();
     return 0;
 }

@@ -1,4 +1,4 @@
-E:/School/STDISCM/PSET4/build/CMakeFiles/server.dir
-E:/School/STDISCM/PSET4/build/CMakeFiles/client.dir
-E:/School/STDISCM/PSET4/build/CMakeFiles/ALL_BUILD.dir
-E:/School/STDISCM/PSET4/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Aly/Desktop/code n stuff/PSET4/build/CMakeFiles/server.dir
+C:/Users/Aly/Desktop/code n stuff/PSET4/build/CMakeFiles/client.dir
+C:/Users/Aly/Desktop/code n stuff/PSET4/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Aly/Desktop/code n stuff/PSET4/build/CMakeFiles/ZERO_CHECK.dir
